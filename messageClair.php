@@ -9,20 +9,23 @@
     </head>
     <header>
         <div class=container-sm align=center>
-            <h1>Chiffre de césar</h1>
+            <h1>Chiffre de César</h1>
             <h5>Par Pierre et Abdessamad</h5>
         </div>
     </header>
     <body>
         <br>
         <div class="container-sm" align=center>
-            <form action=????????? method=GET>
+            <form action=messageCrypte.php method=GET>
 
-                php ici
+                <?php
+                    echo '<input type=text minlength=50 maxlength=100 name=phrase> <br>';
+                    echo '<input type=number min=1 max=26 name=cle value=1';
+                ?>
 
             <br><br>
-            <input class="btn btn-danger" type="reset" value="Effacer">
-            <input class="btn btn-primary" type="submit" value="Réserver">
+            <input class="btn btn-danger" type="reset" value="Annuler">
+            <input class="btn btn-primary" type="submit" value="Crypter">
             </form>
         </div>
     </body>
