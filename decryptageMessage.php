@@ -30,28 +30,53 @@
                 $tabFrequence = array(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
                 $tabMsg = str_split($chaine); //met chaque caractère du message crypté dans un tableau
                 $car = $alphabet[0];
+            ?>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="flush-headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Logs fréquence d'appararition
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+            <?php
                 for ($i=0; $i<count($alphabet); $i++) //lettre par lettre
                 {
-                    $car = $alphabet[$i]; echo ' ';
-                    //echo $car;
-                    for ($tabMsg[$i]; $i<count($tabMsg); $i++) //caractère par caractère
-                    {
-                        if ($tabMsg[$i] == $car) //si le caractere est égale à celui de lettre par lettre alors
-                        {
+                    $car = $alphabet[$i]; echo '<h3><i>lettre</i> '.$car.'</h3><br>';
+                    $c = 0; 
 
-                            echo  '('.$i.')';
-                            $tabFrenquence[$i] = $tabFrenquence[$i] + 1; 
-                            echo 'toto';
+                    for ($tabMsg[$c]; $c<count($tabMsg); $c++) //caractère par caractère
+                    {
+                        echo '<h5><i>Caractère '.$c.'</i> : '.$tabMsg[$c].'</h5>';
+                        if ($tabMsg[$c] == $car) //si le caractere est égale à celui de lettre par lettre alors
+                        {
+                            $tabFrequence[$i]++; 
+                            echo '⇒ La lettre '.$car.' est détecté <br>';
+                            echo 'Compteur lettre '.$car.' = '.$tabFrequence[$i].' fois <br><br>';
                         }
+                        else
+                        {
+                            echo '<br>';
+                        }
+
                     }
 
                 }
-
-                echo 'A= '.$tabFrenquence[0];
-
             ?>
-            <br><br>
-            <strong>Le rang de la lettre la plus fréquente est le : </strong>
+                    </div>
+                    </div>
+                    </div>
+                    </div>
+                    <br>
+            <?php
+                $keyMax = array_search(max($tabFrequence), $tabFrequence);
+
+                echo '<strong>Le rang de la lettre la plus fréquence est le :</strong> '.$keyMax;
+                echo ' (soit '.$alphabet[$keyMax].')<br>';
+
+                echo '<strong>La clé de cryptage est de :</strong> ';
+            ?>
          
         </div>
         <br>
