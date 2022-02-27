@@ -69,13 +69,29 @@
                     </div>
                     </div>
                     <br>
+
             <?php
+
+                //Calcul savoir la valeur du tableau où il y a la plus grande fréquence
                 $keyMax = array_search(max($tabFrequence), $tabFrequence);
 
                 echo '<strong>Le rang de la lettre la plus fréquence est le :</strong> '.$keyMax;
                 echo ' (soit '.$alphabet[$keyMax].')<br>';
 
-                echo '<strong>La clé de cryptage est de :</strong> ';
+                //Calcul clé cryptage
+                $cle = (4 - $keyMax);
+                $cle = abs($cle); //transforme chiffre neg en positif
+                echo '<strong>La clé de cryptage est de :</strong> '.$cle;
+
+                echo '<br>';
+                $i = 0;
+                for ($tabFrequence[$i]; $i<count($tabFrequence); $i++)
+                {
+                    $tabFrequence[$i] = $tabFrequence[$i] + $cle;
+                    echo $alphabet[$i].' '.$tabFrequence[$i].'<br>';
+                }
+
+
             ?>
          
         </div>
