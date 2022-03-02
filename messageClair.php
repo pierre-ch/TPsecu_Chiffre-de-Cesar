@@ -19,7 +19,7 @@
             <form action=messageCrypte.php method=GET>
 
                 <?php
-                    echo '<input type=text minlength=50 maxlength=100 name=phrase> <br>';
+                    echo '<input type=text minlength=1 maxlength=100 name=phrase> <br>';
                     echo '<input type=number min=1 max=26 name=cle value=1';
                 ?>
 
