@@ -22,8 +22,8 @@
                 <input type=text name=leMessage required>
 
             <br><br>
-            <input class="btn btn-danger" type="reset" value="Effacer">
-            <input class="btn btn-primary" type="submit" value="Décrypter">
+            <input class="btn btn-primary btn-lg" type="submit" value="🔐 Décrypter"><br><br>
+            <input class="btn btn-danger" type="reset" value="🗑️ Effacer">
             </form>
         </div>
     </body>
