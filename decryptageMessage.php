@@ -79,16 +79,62 @@
                 echo ' (soit '.$alphabet[$keyMax].')<br>';
 
                 //Calcul clé cryptage
-                $cle = (4 - $keyMax);
-                $cle = abs($cle); //transforme chiffre neg en positif
-                echo '<strong>La clé de cryptage est de :</strong> '.$cle;
-
-                echo '<br>';
-                $i = 0;
-                for ($tabFrequence[$i]; $i<count($tabFrequence); $i++)
+                if ($keyMax > 4)
                 {
-                    $tabFrequence[$i] = $tabFrequence[$i] + $cle;
-                    echo $alphabet[$i].' '.$tabFrequence[$i].'<br>';
+                    $cle = (4 - $keyMax);
+                    $cle = abs($cle);
+                    echo '>';
+                }
+                else
+                {
+                    if ($keyMax < 4)
+                    {
+                        $cle = (26 - $keyMax);
+                    }
+                    else
+                    {
+                        $cle = 0;
+                    }
+                }
+
+                echo '<strong>La clé de cryptage est de :</strong> '.$cle;
+                echo '<br>';
+
+                /*for ($i = 0; $i < count($tabFrequence); i++)
+                {
+                    $tabFrequence[i] = 
+                }*/
+
+                echo 'oré"hjoijoréjor   '.$tabMsg[0].'<br>';
+                $i = 0;
+
+                $tabMsgDecr;
+                $tabMsgDecr = $tabMsg;
+                $z =0;
+                for ($i = 0; $i < count($alphabet); $i++) {
+                    $car = "";
+                    for ($z = 0; $z < count($alphabet); $z++) {
+                        if ($tabMsg[$i] == $alphabet[$z]) {
+                            if ($z-$cle < 0) {
+                                $car = $alphabet[$z+count($alphabet)-$cle];
+                            }
+                            else {
+                                $car = $alphabet[$z-$cle];
+                            }
+                        }
+                    }
+                    $tabMsgDecr[$i] = $car;
+                }
+
+                echo "Le message décrypter est: ".implode("", $tabMsgDecr);
+
+                for ($i = 0; $i<count($tabFrequence); $i++)
+                {
+                    $car = $alphabet[i];
+                    for ($z = 0; $z<count($tabFrequence); $z++)
+                    {
+                        
+                    }
                 }
 
 
